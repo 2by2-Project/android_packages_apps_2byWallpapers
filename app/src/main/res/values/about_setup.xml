@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation,MissingTranslation">
+    <string-array name="credits_photos" formatted="false" tools:ignore="TypographyDashes">
+        <item>https://raw.githubusercontent.com/2by2-Project/android/14/images/2by2-logo-emblem.png</item>
+    </string-array>
+
+    <string-array name="credits_titles">
+        <item>2by2 Project</item>
+    </string-array>
+
+    <string-array name="credits_descriptions">
+        <item>Application and wallpapers</item>
+    </string-array>
+
+    <string-array name="credits_buttons">
+        <item>GitHub|Telegram</item>
+    </string-array>
+
+    <string-array name="credits_links">
+        <item>https://github.com/2by2-Project|https://t.me/twobytwodiscussion</item>
+    </string-array>
+</resources>
