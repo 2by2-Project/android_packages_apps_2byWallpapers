@@ -1,7 +1,7 @@
 @file:Suppress("unused")
 
-object MyApp {
+object Frames {
     const val appId = "com.twobytwo.twopapers.wallpapers"
-    const val version = 1
-    const val versionName = "1.0.BETA"
+    const val version = 2
+    const val versionName = "1.1.BETA"
 }

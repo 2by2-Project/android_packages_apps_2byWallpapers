@@ -4,7 +4,7 @@ package com.twobytwo.twopapers.wallpapers
 import android.content.Context
 import com.onesignal.OSNotificationReceivedEvent
 import com.onesignal.OneSignal.OSRemoteNotificationReceivedHandler
-import dev.jahir.frames.app.R
+import dev.jahir.frames.R
 import dev.jahir.frames.extensions.context.color
 import dev.jahir.frames.extensions.context.hasNotificationsPermission
 import dev.jahir.frames.extensions.context.preferences

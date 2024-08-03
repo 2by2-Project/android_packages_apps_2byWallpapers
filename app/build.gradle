@@ -4,6 +4,19 @@ apply plugin: 'kotlin-parcelize'
 apply plugin: 'com.google.devtools.ksp'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'frames'
+            keyPassword 'frames'
+            storeFile file('frames.jks')
+            storePassword 'frames'
+            enableV1Signing true
+            enableV2Signing true
+            enableV3Signing true
+            enableV4Signing true
+        }
+    }
+
     applicationVariants.configureEach { variant ->
         variant.outputs.configureEach { output ->
             outputFileName = defaultConfig.applicationId + "-v${variant.versionName}-${variant.name}.apk"
@@ -16,19 +29,19 @@ android {
         disable 'MissingTranslation', 'GoogleAppIndexingWarning'
     }
 
-    namespace MyApp.appId
+    namespace Frames.appId
     defaultConfig {
         buildConfigField("String", "ONESIGNAL_APP_ID", "\"$OneSignal.appId\"")
         manifestPlaceholders = [
                 onesignal_app_id               : OneSignal.appId,
                 onesignal_google_project_number: OneSignal.googleProjectNumber
         ]
-        applicationId MyApp.appId
+        applicationId Frames.appId
         minSdkVersion Versions.minSdk
         compileSdk Versions.targetSdk
         targetSdkVersion Versions.targetSdk
-        versionCode MyApp.version
-        versionName MyApp.versionName
+        versionCode Frames.version
+        versionName Frames.versionName
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         proguardFiles 'proguard-android-optimize.txt', 'proguard-rules.pro'
@@ -55,6 +68,7 @@ android {
             shrinkResources false
             proguardFiles 'proguard-android-optimize.txt', 'proguard-rules.pro'
             consumerProguardFiles 'proguard-android-optimize.txt', 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -88,9 +102,8 @@ android {
 }
 
 dependencies {
-    implementation(Libs.frames) {
-        transitive = true
-    }
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':library')
     // TODO: Remove comment marks to enable
     // implementation Libs.oneSignal
 }
